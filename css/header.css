@@ -127,6 +127,27 @@ body {
   object-fit: cover;
 }
 
+/* estilo do visualizador*/
+.views-counter {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 12px 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+    .views-counter {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+
+
+
 /* CONTENT */
 .content {
   padding: 180px 20px;

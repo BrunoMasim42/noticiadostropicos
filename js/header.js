@@ -18,3 +18,15 @@ hamburger.addEventListener("click", () => {
 document.getElementById("year").textContent = new Date().getFullYear();
 
 
+// CONTADOR DE VISUALIZAÇÕES
+let views = localStorage.getItem('siteViews');
+
+if (views === null) {
+    views = 1;
+} else {
+    views = parseInt(views) + 1;
+}
+
+localStorage.setItem('siteViews', views);
+
+document.getElementById('viewCount').textContent = views;
