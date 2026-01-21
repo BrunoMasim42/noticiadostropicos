@@ -30,3 +30,29 @@ if (views === null) {
 localStorage.setItem('siteViews', views);
 
 document.getElementById('viewCount').textContent = views;
+
+
+// o mesmo Intersection Observer do código anterior já cobre a nova seção
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        entry.target.style.transitionDelay = `${delay}ms`;
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.15,
+    rootMargin: "0px 0px -100px 0px"
+  }
+);
+
+revealElements.forEach((el, index) => {
+  el.dataset.delay = index * 150;
+  observer.observe(el);
+});
